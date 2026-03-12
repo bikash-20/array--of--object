@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class student
+{
+public:
+    int id;
+    double gpa;
+
+    void input()
+    {
+        cin >> id >> gpa;
+    }
+
+    void display() const
+    {
+        cout << "ID: " << id << " GPA: " << gpa << endl;
+    }
+};
+
+int main()
+{
+    int n;
+    cout << "Enter number of students: ";
+    cin >> n;
+
+    vector<student> v;
+
+    for(int i = 0; i < n; i++)
+    {
+        student s;
+        cout << "Enter ID and GPA for student " << i + 1 << ": ";
+        s.input();
+        v.push_back(s);
+    }
+
+    cout << "\nStudent List:\n";
+    for(const student& s : v)
+    {
+        s.display();
+    }
+
+    return 0;
+}
